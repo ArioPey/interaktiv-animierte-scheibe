@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Interaktiv animierte 2D-Scheibe mit JavaScript">
+    <title>Interaktiv animierte Scheibe</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header class="site-header">
+        <div>
+            <p class="eyebrow">JavaScript · Interaktion · Animation</p>
+            <h1>Interaktiv animierte Scheibe</h1>
+            <p class="subtitle">Eine 2D-Scheibe wird durch das Austauschen von Einzelbildern animiert.</p>
+        </div>
+        <div class="status-pill" id="animationStatus" aria-live="polite">Manuell</div>
+    </header>
+
+    <main class="container">
+        <section class="card animation-card" aria-labelledby="disc-heading">
+            <div class="section-heading">
+                <div>
+                    <p class="section-label">Hauptaufgabe</p>
+                    <h2 id="disc-heading">Drehende Scheibe</h2>
+                </div>
+                <span class="frame-counter" id="frameCounter" aria-live="polite">Bild 1 / 12</span>
+            </div>
+
+            <div class="stage">
+                <img
+                    id="discImage"
+                    class="disc-image"
+                    src="images/disc-01.svg"
+                    alt="Scheibe im Rotationszustand 0 Grad"
+                    width="320"
+                    height="320"
+                >
+            </div>
+
+            <div class="controls" aria-label="Steuerung der Scheibe">
+                <button type="button" id="leftButton" class="control-button">
+                    <span aria-hidden="true">←</span>
+                    Links
+                    <kbd>L</kbd>
+                </button>
+
+                <button type="button" id="autoButton" class="control-button primary">
+                    <span aria-hidden="true">▶</span>
+                    Automatisch
+                    <kbd>A</kbd>
+                </button>
+
+                <button type="button" id="rightButton" class="control-button">
+                    Rechts
+                    <kbd>R</kbd>
+                    <span aria-hidden="true">→</span>
+                </button>
+            </div>
+
+            <p class="hint">
+                <strong>Tastatur:</strong> Mit <kbd>L</kbd> und <kbd>R</kbd> wechselst du jeweils ein Bild.
+                Mit <kbd>A</kbd> startest oder stoppst du die automatische Rotation.
+            </p>
+        </section>
+
+        <section class="card" aria-labelledby="bunny-heading">
+            <div class="section-heading">
+                <div>
+                    <p class="section-label">Erweiterung 1</p>
+                    <h2 id="bunny-heading">Animiertes Objekt</h2>
+                </div>
+                <span class="badge">+2 Punkte</span>
+            </div>
+
+            <div class="bunny-stage">
+                <img
+                    id="bunnyImage"
+                    class="bunny-image"
+                    src="images/bunny-01.svg"
+                    alt="Animierter Hase"
+                    width="260"
+                    height="220"
+                >
+            </div>
+
+            <p class="description">
+                Der Hase besteht ebenfalls aus mehreren Einzelbildern. JavaScript tauscht die
+                Bilder nacheinander aus und erzeugt dadurch den Eindruck einer Bewegung.
+            </p>
+        </section>
+
+        <section class="card" aria-labelledby="info-heading">
+            <div class="section-heading">
+                <div>
+                    <p class="section-label">Dokumentation</p>
+                    <h2 id="info-heading">Quellen &amp; Hinweise</h2>
+                </div>
+            </div>
+
+            <div class="info-grid">
+                <div>
+                    <h3>Material</h3>
+                    <p>
+                        Die Scheiben- und Hasenbilder wurden für diese Web-Anwendung als eigene
+                        SVG-Grafiken erstellt. Es wurden keine externen Bildquellen benötigt.
+                    </p>
+                </div>
+
+                <div>
+                    <h3>Technik</h3>
+                    <p>
+                        HTML, CSS und JavaScript. Die Animation verwendet normale
+                        <code>&lt;img&gt;</code>-Elemente. Es wird kein HTML-Canvas und kein WebGL verwendet.
+                    </p>
+                </div>
+
+                <div>
+                    <h3>Bedienung</h3>
+                    <p>
+                        L/R verändern den Rotationsschritt. A startet bzw. stoppt die kontinuierliche
+                        Animation. Die Buttons können alternativ mit der Maus bedient werden.
+                    </p>
+                </div>
+
+                <div>
+                    <h3>Testumgebung</h3>
+                    <p>
+                        Die Anwendung ist für aktuelle Desktop-Browser ausgelegt und kann lokal
+                        über einen Webserver oder auf einem öffentlichen Webserver getestet werden.
+                    </p>
+                </div>
+            </div>
+
+            <details class="test-notes">
+                <summary>Test- und QA-Hinweise</summary>
+                <ul>
+                    <li>Bei <strong>L</strong> wird genau ein Rotationsbild zurückgeschaltet.</li>
+                    <li>Bei <strong>R</strong> wird genau ein Rotationsbild weitergeschaltet.</li>
+                    <li>Bei <strong>A</strong> startet bzw. stoppt die automatische Rotation.</li>
+                    <li>Die Animation läuft nicht mehrfach parallel, wenn A wiederholt gedrückt wird.</li>
+                    <li>Die Browser-Konsole sollte keine JavaScript-Fehler anzeigen.</li>
+                </ul>
+            </details>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <p>Interaktiv animierte Scheibe · JavaScript-Webanwendung</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
