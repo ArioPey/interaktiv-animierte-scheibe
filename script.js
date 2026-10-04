@@ -17,12 +17,12 @@ let animationTimer = null;
 
 const discFrames = Array.from(
     { length: DISC_FRAMES },
-    (_, index) => `images/disc-${String(index + 1).padStart(2, "0")}.svg`
+    (_, index) => `disc-${String(index + 1).padStart(2, "0")}.svg`
 );
 
 const bunnyFrames = Array.from(
     { length: BUNNY_FRAMES },
-    (_, index) => `images/bunny-${String(index + 1).padStart(2, "0")}.svg`
+    (_, index) => `bunny-${String(index + 1).padStart(2, "0")}.svg`
 );
 
 // Bilder frühzeitig laden, damit beim Wechsel möglichst keine Verzögerung entsteht.
